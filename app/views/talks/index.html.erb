@@ -1,0 +1,6 @@
+<%= link_to 'Do a lighting talk!', new_talk_path %>
+<% unless @talks.empty? %>
+  <% @talks.each do |talk| %>
+    <%= talk.topic %>
+  <%-end-%>
+<%-end-%>
