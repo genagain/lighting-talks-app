@@ -22,6 +22,8 @@ class TalksController < ApplicationController
 
   def show
     @talk = Talk.find(params[:id])
+    @comments = @talk.comments
+    @comment = Comment.new
   end
 
   def edit
