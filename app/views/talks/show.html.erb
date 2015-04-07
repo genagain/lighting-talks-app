@@ -1,6 +1,8 @@
 <%= @talk.topic %> <%= link_to "Edit Talk", edit_talk_path %> <%= link_to "Delete Talk", talk_path, method: :delete %>
-<%= @comments.each do |comment| %>
-  <%= comment.content %>
+<% unless @comments.empty? %>
+  <%= @comments.each do |comment| %>
+    <%= comment.content %>
+  <%-end-%>
 <%-end-%>
 
 <%= render 'comments/form' %>
