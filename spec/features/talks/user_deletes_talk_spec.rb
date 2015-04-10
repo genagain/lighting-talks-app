@@ -11,7 +11,6 @@ So that I can change a talk\'s details) do
       user = FactoryGirl.create(:user)
       sign_in(user)
       click_link(talk.topic)
-      save_and_open_page
       click_link('Delete')
       expect(page).to have_content('You have deleted a lighting talk!')
       expect(page).to_not have_content('Brewing Craft Beer')
