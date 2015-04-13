@@ -53,5 +53,23 @@ So that I can give it in the future) do
       expect(page).to have_content('Topic can\'t be blank')
       expect(page).to have_content('Date can\'t be blank')
     end
+
+    scenario 'includes a youtube video' do
+      user = FactoryGirl.create(:user)
+      sign_in(user)
+
+      click_link 'Do a lighting talk!'
+
+      fill_in 'Topic', with: 'Craft beer'
+      fill_in 'Date', with: '2015-10-09'
+      fill_in 'Video URL', with: 'https://www.youtube.com/watch?v=mFTF_MfQKCg'
+
+      click_button 'Add Talk'
+      expect(page).to have_content('You have scheduled a lighting talk!')
+
+      click_link 'Craft beer'
+      expect(page).to have_selector 'iframe'
+
+    end
   end
 end

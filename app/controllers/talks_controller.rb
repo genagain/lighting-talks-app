@@ -52,7 +52,7 @@ class TalksController < ApplicationController
   protected
 
   def talk_params
-    params.require(:talk).permit(:topic, :date, :description)
+    params.require(:talk).permit(:topic, :date, :description, :video_url)
   end
 end
 
