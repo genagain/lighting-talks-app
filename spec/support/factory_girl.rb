@@ -7,4 +7,15 @@ FactoryGirl.define do
     password_confirmation 'password'
   end
 
+  factory :talk do
+    sequence(:topic) { |n| "Talk #{n}" }
+    date "2015-10-07"
+  end
+
+  factory :comment do
+    content 'Great job!'
+    talk
+    user_id 1
+  end
+
 end

@@ -1,2 +1,10 @@
 <%= @talk.topic %> <%= link_to "Edit Talk", edit_talk_path %> <%= link_to "Delete Talk", talk_path, method: :delete %>
-<iframe src= <%= @talk.video_url %> ></iframe>
+
+<iframe id="ytplayer" type="text/html" width="640" height="390"
+  src=<%= @talk.video_url %>
+frameborder="0"></iframe>
+
+<%= render 'comments/form' %>
+<% @comments.each do |comment| %>
+  <%= comment.content %> <%= link_to "Edit", edit_talk_comment_path(@talk,comment), id: "edit-comment-#{comment.id}", class: "button" %>
+<%-end-%>

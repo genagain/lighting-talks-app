@@ -8,6 +8,7 @@ class TalksController < ApplicationController
   end
 
   def create
+    talk_params[:video_url].gsub!("watch?v=","embed/")
     @talk = Talk.new(talk_params)
     if @talk.save
       flash[:notice] = 'You have scheduled a lighting talk!'
@@ -22,6 +23,8 @@ class TalksController < ApplicationController
 
   def show
     @talk = Talk.find(params[:id])
+    @comments = @talk.comments
+    @comment = Comment.new
   end
 
   def edit
