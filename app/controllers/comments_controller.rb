@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     @comment.content = params[:comment][:content]
     if @comment.save
-      flash[:notice] = 'Review successfully created'
+      flash[:notice] = 'Thanks for commenting'
       redirect_to talk_path(@comment.talk)
     else
       flash[:alert] = "You cannot submit a blank comment"
