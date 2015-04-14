@@ -10,6 +10,7 @@ FactoryGirl.define do
   factory :talk do
     sequence(:topic) { |n| "Talk #{n}" }
     date "2015-10-07"
+    video_url ""
   end
 
   factory :comment do

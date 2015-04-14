@@ -1,10 +1,20 @@
-<%= @talk.topic %> <%= link_to "Edit Talk", edit_talk_path %> <%= link_to "Delete Talk", talk_path, method: :delete %>
-
-<iframe id="ytplayer" type="text/html" width="640" height="390"
-  src=<%= @talk.video_url %>
-frameborder="0"></iframe>
+<h2><%= @talk.topic %></h2>
+<%= link_to "Edit Talk", edit_talk_path, class: "button tiny" %> <%= link_to "Delete Talk", talk_path, method: :delete, class: "button alert tiny" %>
+<% unless @talk.video_url.nil? || @talk.video_url.empty?  %>
+  <iframe id="ytplayer" type="text/html" width="640" height="390" src=<% @talk.video_url %>></iframe>
+<%-end-%>
 
 <%= render 'comments/form' %>
 <% @comments.each do |comment| %>
-  <%= comment.content %> <%= link_to "Edit", edit_talk_comment_path(@talk,comment), id: "edit-comment-#{comment.id}", class: "button" %>
+<div class="row">
+  <div class="small-8 columns">
+    <%= comment.content %>
+  </div>
+  <div class="small-2 columns">
+    <%= link_to "Edit", edit_talk_comment_path(@talk,comment), id: "edit-comment-#{comment.id}", class: "button tiny" %>
+  </div>
+  <div class="small-2 columns">
+    <%= link_to "Delete",talk_comment_path(@talk,comment), method: :delete, id: "delete-comment-#{comment.id}", class: "button tiny alert" %>
+  </div>
+</div>
 <%-end-%>

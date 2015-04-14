@@ -1,6 +1,7 @@
-<%= link_to 'Do a lighting talk!', new_talk_path %>
+<h1> Below is a list of lighting talks! </h1>
+<%= link_to 'Do a lighting talk!', new_talk_path, class: "button" %>
 <% unless @talks.empty? %>
   <% @talks.each do |talk| %>
-    <%= link_to talk.topic, talk_path(talk) %>
+    <h3><%= link_to talk.topic, talk_path(talk) %></h3>
   <%-end-%>
 <%-end-%>
