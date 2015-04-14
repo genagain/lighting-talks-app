@@ -1,6 +1,6 @@
 class EmceeController < ApplicationController
   def index
-    flash[:notice] = "Those are all of the lighting talk. Thank you for listenin" if params[:id].nil?
+    flash[:notice] = "Those are all of the lighting talks. Thank you for listening" if params[:id].nil?
     @talks = Talk.where(date: Date.today)
   end
 
