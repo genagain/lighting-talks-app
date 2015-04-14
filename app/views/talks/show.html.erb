@@ -1,5 +1,9 @@
 <h2><%= @talk.topic %></h2>
 <%= link_to "Edit Talk", edit_talk_path, class: "button tiny" %> <%= link_to "Delete Talk", talk_path, method: :delete, class: "button alert tiny" %>
+<% current_talk_index = @talks.index(@talk) %>
+<% next_talk = @talks[current_talk_index + 1] %>
+<%= link_to "Next Talk", talk_path(next_talk) unless next_talk.nil? %>
+<%= link_to "Next Talk", emcee_index_path if next_talk.nil? %>
 <% unless @talk.video_url.nil? || @talk.video_url.empty?  %>
   <iframe id="ytplayer" type="text/html" width="640" height="390" src=<% @talk.video_url %>></iframe>
 <%-end-%>

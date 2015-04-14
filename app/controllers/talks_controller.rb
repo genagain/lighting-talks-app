@@ -22,6 +22,7 @@ class TalksController < ApplicationController
   end
 
   def show
+    @talks = Talk.where(date: Date.today)
     @talk = Talk.find(params[:id])
     @comments = @talk.comments
     @comment = Comment.new
