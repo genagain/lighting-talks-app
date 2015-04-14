@@ -20,9 +20,4 @@ FactoryGirl.define do
     user_id 1
   end
 
-  factory :talk do
-    sequence(:topic) { |n| "Talk #{n}" }
-    date "2015-10-11"
-  end
-
 end
