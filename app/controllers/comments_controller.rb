@@ -1,9 +1,13 @@
 class CommentsController < ApplicationController
   def create
     @talk = Talk.find(params[:talk_id])
-    @comment = Comment.create(talk_id: @talk.id, content: params[:comment][:content], user_id: 1)
+    @comment = Comment.new(talk_id: @talk.id, content: params[:comment][:content], user_id: 1)
+    if @comment.save
+      flash[:notice] = 'Thanks for commenting'
+    else
     @comment.errors.full_messages.each do |error|
-      flash[:alert] = "You cannot submit a blank comment"
+      flash[:alert] = "Comment can't be blank"
+    end
     end
     redirect_to talk_path(@talk)
   end
