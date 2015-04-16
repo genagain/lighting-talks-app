@@ -7,8 +7,8 @@ I want to delete a lighting talk
 So that I don\'t have to do a talk in the future) do
   context 'Authenticated user' do
     scenario 'deletes lighting talk' do
-      talk = Talk.create(topic: 'Craft beer', date: '2015-03-11')
       user = FactoryGirl.create(:user)
+      talk = Talk.create(topic: 'Craft beer', date: '2015-03-11', user_id: user.id)
       sign_in(user)
       click_link(talk.topic)
       click_link('Delete')

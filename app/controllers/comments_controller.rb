@@ -1,7 +1,9 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     @talk = Talk.find(params[:talk_id])
-    @comment = Comment.new(talk_id: @talk.id, content: params[:comment][:content], user_id: 1)
+    @comment = Comment.new(talk_id: @talk.id, content: params[:comment][:content], user_id: current_user.id)
     if @comment.save
       flash[:notice] = 'Thanks for commenting'
     else

@@ -1,4 +1,5 @@
 class TalksController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   def index
     @talks = Talk.all
   end
@@ -10,6 +11,7 @@ class TalksController < ApplicationController
   def create
     talk_params[:video_url].gsub!("watch?v=","embed/")
     @talk = Talk.new(talk_params)
+    @talk.user_id = current_user.id
     if @talk.save
       flash[:notice] = 'You have scheduled a lighting talk!'
       redirect_to root_path

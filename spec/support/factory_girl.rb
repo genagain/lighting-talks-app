@@ -5,19 +5,20 @@ FactoryGirl.define do
     sequence(:email) { |n| "user#{n}@example.com" }
     password 'password'
     password_confirmation 'password'
-    emcee "2015-01-01"
+    emcee ""
   end
 
   factory :talk do
     sequence(:topic) { |n| "Talk #{n}" }
     date "2015-10-07"
     video_url ""
+    user
   end
 
   factory :comment do
     content 'Great job!'
     talk
-    user_id 1
+    user
   end
 
 end
