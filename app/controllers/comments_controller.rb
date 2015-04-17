@@ -7,9 +7,9 @@ class CommentsController < ApplicationController
     if @comment.save
       flash[:notice] = 'Thanks for commenting'
     else
-    @comment.errors.full_messages.each do |error|
-      flash[:alert] = "Comment can't be blank"
-    end
+      @comment.errors.full_messages.each do |error|
+        flash[:alert] = "Comment can't be blank"
+      end
     end
     redirect_to talk_path(@talk)
   end

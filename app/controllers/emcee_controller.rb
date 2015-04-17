@@ -25,4 +25,17 @@ class EmceeController < ApplicationController
     @talk = Talk.find(params[:id])
     redirect_to talk_path(@talk)
   end
+
+  def edit
+    @emcee = current_user
+  end
+
+  def destroy
+    @user = current_user
+    flash[:notice] =  @user.emcee.strftime("You are no longer the emcee for lighting talks on %B %-d")
+    @user.emcee = ""
+    @user.save
+    redirect_to talks_path
+  end
+
 end

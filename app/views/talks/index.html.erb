@@ -1,10 +1,23 @@
 <h1> Below is a list of lighting talks! </h1>
 <%= link_to 'Do a lighting talk!', new_talk_path, class: "button radius" unless current_user.nil? %>
 <% unless current_user.nil? %>
-<%= link_to 'Emcee Lighting Talks', emcee_index_path, class: "button radius" if current_user.emcee == Date.today  %>
+  <%= link_to 'Emcee Lighting Talks', emcee_index_path, class: "button radius" if current_user.emcee == Date.today  %>
 <%-end-%>
 <% unless @talks.empty? %>
   <% @talks.each do |talk| %>
+<div class="row">
+  <div class="small-12 columns">
     <h3><%= link_to talk.topic, talk_path(talk) %></h3>
+  </div>
+</div>
+<div class="row">
+  <div class="small-6 columns">
+    <p><%= talk.date.strftime("Scheduled for %B %-d, %Y ") %></p>
+  </div>
+  <div class="small-6 columns">
+    <p> Presented by <%= talk.user.email %></p>
+  </div>
+</div>
+
   <%-end-%>
 <%-end-%>
