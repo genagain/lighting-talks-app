@@ -17,7 +17,7 @@ class TalksController < ApplicationController
       redirect_to root_path
     else
       @talk.errors.full_messages.each { |error| flash[error] = error }
-      new_talk_path
+      redirect_to new_talk_path
     end
   end
 
@@ -27,7 +27,6 @@ class TalksController < ApplicationController
     @comments = @talk.comments
     @comment = Comment.new
     @filler_counts = @talk.count_fillers
-    binding.pry
   end
 
   def edit

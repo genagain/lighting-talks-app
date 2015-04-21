@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'talks#index'
+
   resources :talks do
     resources :comments
   end

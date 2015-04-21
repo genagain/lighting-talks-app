@@ -13,7 +13,6 @@ class Talk < ActiveRecord::Base
       key = filler.word.scan(/[a-z]/).join
       (word_counts.key?(key))? word_counts[key] += 1 : word_counts[key] = 1
     end
-    binding.pry
     word_counts
   end
 
