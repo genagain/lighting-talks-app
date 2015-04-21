@@ -1,0 +1,7 @@
+<%= link_to 'Emcee for lighting talks', new_emcee_path %>
+<%= @user.emcee.strftime("You are the emcee for lighting talks on %B %-d") unless @user.emcee.nil? %>
+<%= link_to "Edit", edit_emcee_path %>
+<%= link_to "Delete", emcee_path, method: :delete %>
+<% @talks.each do |talk| %>
+  <%= link_to talk.topic, talk_path(talk) %>
+<%-end-%>

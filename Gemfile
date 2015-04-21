@@ -27,9 +27,11 @@ gem 'pry-rails'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
-
+gem 'faker'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+gem 'omniauth-facebook'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

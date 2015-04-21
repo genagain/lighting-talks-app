@@ -13,7 +13,6 @@ So that I can give it in the future) do
 
       fill_in 'Topic', with: 'Craft beer'
       fill_in 'Date', with: '2015-10-09'
-
       click_button 'Add Talk'
       expect(page).to have_content('You have scheduled a lighting talk!')
       expect(page).to have_content('Craft beer')

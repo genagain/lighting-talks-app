@@ -1,0 +1,6 @@
+<%= form_for [@talk, @comment] do |f| %>
+  <%= f.label :content, "Comment:" %>
+  <%= f.text_area :content %>
+
+  <%= f.submit (f.object.new_record?) ? "Add Comment" : "Edit Comment", class: "button medium radius" %>
+<%-end-%>

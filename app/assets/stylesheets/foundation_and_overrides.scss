@@ -116,9 +116,10 @@ $include-html-global-classes: $include-html-classes;
 // $oil         : #333333;
 // $jet         : #222222;
 // $black       : #000000;
+$orange : #FF8610;
 
 // We use these as default colors throughout
-// $primary-color: #008CBA;
+$primary-color: #008CBA;
 // $secondary-color: #e7e7e7;
 // $alert-color: #f04124;
 // $success-color: #43AC6A;
@@ -142,7 +143,7 @@ $include-html-global-classes: $include-html-classes;
 // $last-child-float: $opposite-direction;
 
 // We use these to make sure border radius matches unless we want it different.
-// $global-radius: 3px;
+$global-radius: 5px;
 // $global-rounded: 1000px;
 
 // We use these to control inset shadow shiny edges and depressions.
@@ -467,7 +468,7 @@ $include-html-global-classes: $include-html-classes;
 // $info-button-border-color: $info-button-bg-hover;
 
 // We use this to set the default radius used throughout the core.
-// $button-radius: $global-radius;
+$button-radius: $global-radius;
 // $button-round: $global-rounded;
 
 // We use this to set default opacity and cursor for disabled buttons.
@@ -927,7 +928,7 @@ $include-html-global-classes: $include-html-classes;
 // Hide controls on small
 // $orbit-nav-hide-for-small: true;
 // $orbit-bullet-hide-for-small: true;
-// $orbit-timer-hide-for-small: true; 
+// $orbit-timer-hide-for-small: true;
 
 // 20. Pagination
 // - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -1265,7 +1266,7 @@ $include-html-global-classes: $include-html-classes;
 // $switch-paddle-bg: $white;
 // $switch-paddle-transition-speed: .15s;
 // $switch-paddle-transition-ease: ease-out;
-// $switch-active-color: $primary-color; 
+// $switch-active-color: $primary-color;
 
 // 30. Tables
 // - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -1381,8 +1382,8 @@ $include-html-global-classes: $include-html-classes;
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-// $topbar-bg-color: $oil;
-// $topbar-bg: $topbar-bg-color;
+$topbar-bg-color: $primary-color;
+$topbar-bg: $topbar-bg-color;
 
 // Height and margin
 // $topbar-height: rem-calc(45);
@@ -1456,7 +1457,7 @@ $include-html-global-classes: $include-html-classes;
 // Sticky Class
 // $topbar-sticky-class: ".sticky";
 // $topbar-arrows: true; //Set false to remove the triangle icon from the menu item
-// $topbar-dropdown-arrows: true; //Set false to remove the \00bb >> text from dropdown subnavigation li// 
+// $topbar-dropdown-arrows: true; //Set false to remove the \00bb >> text from dropdown subnavigation li//
 
 // 36. Visibility Classes
 // - - - - - - - - - - - - - - - - - - - - - - - - -

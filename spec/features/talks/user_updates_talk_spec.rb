@@ -6,8 +6,8 @@ I want to updates a lighting talk
 So that I can change a talk\'s details) do
   context 'Authenticated user' do
     scenario 'updates lighting talk' do
-      talk = Talk.create(topic: 'Craft beer', date: '2015-03-11')
       user = FactoryGirl.create(:user)
+      talk = Talk.create(topic: 'Craft beer', date: '2015-03-11', user_id: user.id)
       sign_in(user)
       click_link(talk.topic)
       click_link('Edit')
@@ -19,7 +19,7 @@ So that I can change a talk\'s details) do
 
     scenario 'doesn\'t fill out topic' do
       user = FactoryGirl.create(:user)
-      talk = Talk.create(topic: 'Craft beer', date: '2015-03-11')
+      talk = Talk.create(topic: 'Craft beer', date: '2015-03-11', user_id: user.id)
       sign_in(user)
 
       click_link(talk.topic)
@@ -36,7 +36,7 @@ So that I can change a talk\'s details) do
 
     scenario 'doesn\'t fill out date' do
       user = FactoryGirl.create(:user)
-      talk = Talk.create(topic: 'Craft beer', date: '2015-03-11')
+      talk = Talk.create(topic: 'Craft beer', date: '2015-03-11', user_id: user.id)
       sign_in(user)
 
       click_link(talk.topic)
@@ -52,7 +52,7 @@ So that I can change a talk\'s details) do
 
     scenario 'doesn\'t fill out date and topic' do
       user = FactoryGirl.create(:user)
-      talk = Talk.create(topic: 'Craft beer', date: '2015-03-11')
+      talk = Talk.create(topic: 'Craft beer', date: '2015-03-11', user_id: user.id)
       sign_in(user)
 
       click_link(talk.topic)

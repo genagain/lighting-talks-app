@@ -1,2 +1,67 @@
-<%= @talk.topic %> <%= link_to "Edit Talk", edit_talk_path %> <%= link_to "Delete Talk", talk_path, method: :delete %>
-<iframe src= <%= @talk.video_url %> ></iframe>
+<div class="row">
+  <div class="small-12 columns">
+    <h2><%= @talk.topic %></h2>
+  </div>
+</div>
+<div class="row">
+  <div class="small-6 columns">
+    <p> <%= @talk.date.strftime("Scheduled for %B %-d, %Y") %> </p>
+  </div>
+  <div class="small-2 columns">
+    <%= link_to "Edit Talk", edit_talk_path, class: "button radius tiny" if @talk.user == current_user %>
+  </div>
+  <div class="small-2 columns">
+    <%= link_to "Delete Talk", talk_path, method: :delete, class: "button alert radius tiny" if @talk.user == current_user%>
+  </div>
+  <div class="small-2 columns">
+    <% unless current_user.nil? %>
+      <% if current_user.emcee == Date.today %>
+      <% current_talk_index = @talks.index(@talk) %>
+    <% next_talk = @talks[current_talk_index + 1] unless current_talk_index.nil? %>
+    <%= link_to "Next Talk", talk_path(next_talk), class: "button success" unless next_talk.nil? %>
+    <%= link_to "Next Talk", emcee_index_path, class: "button success radius tiny"  if next_talk.nil? %>
+  <%-end-%>
+  <%-end-%>
+  </div>
+</div>
+
+<% unless @talk.video_url.nil? || @talk.video_url.empty?  %>
+  <iframe id="ytplayer" type="text/html" width="640" height="390" src=<%= @talk.video_url %>></iframe>
+<%-end-%>
+<%= render 'transcript' %>
+
+<% unless @filler_counts.empty? %>
+<h4>These are the filler words you said </h4>
+<%-end-%>
+<p>
+<% @filler_counts.each_pair do |filler, count| %>
+  <%= "#{filler.capitalize} #{count}" %>
+<%-end-%>
+</p>
+
+<%= render 'comments/form' %>
+<% unless @comments.empty? %>
+  <% @comments.each do |comment| %>
+  <div class="panel callout radius">
+  <div class="row">
+    <div class="small-6 small-offset-6">
+      <%= comment.created_at.strftime("#{comment.user.email} commented on %B %-d, %Y at %k:%M") %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-8 columns">
+      <%= comment.content %>
+    </div>
+    <div class="small-2 columns">
+      <%= link_to "Edit", edit_talk_comment_path(@talk,comment), id: "edit-comment-#{comment.id}", class: "button radius tiny" if comment.user == current_user %>
+    </div>
+    <div class="small-2 columns">
+      <%= link_to "Delete",talk_comment_path(@talk,comment), method: :delete, id: "delete-comment-#{comment.id}", class: "button radius tiny alert" if comment.user == current_user %>
+    </div>
+  </div>
+</div>
+<%-end-%>
+</div>
+<%-end-%>
+
+

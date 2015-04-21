@@ -1,7 +1,15 @@
 Rails.application.routes.draw do
   root 'talks#index'
-  resources :talks
+
+  resources :talks do
+    resources :comments
+  end
+
+  resources :emcee
+  resources :speakers
+
   devise_for :users
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,5 @@
+<%= form_for :user, url: { action: "create", id: @emcee } do |f| %>
+  <%= f.label :emcee, "Lighting Talk Date" %>
+  <%= f.date_field(:emcee)%>
+  <%= f.submit "Emcee Lighting Talks" %>
+<%-end-%>
