@@ -5,7 +5,7 @@ class SpeechProcessor
 
   attr_accessor :decoder
 
-  def initialize()
+  def initialize
     @decoder = Decoder.new(Configuration.default)
   end
 

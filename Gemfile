@@ -33,7 +33,7 @@ gem 'faker'
 
 gem 'omniauth-facebook'
 
-gem 'coreaudio'
+gem 'coreaudio', '~> 0.0.11'
 
 gem 'pocketsphinx-ruby'
 

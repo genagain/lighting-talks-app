@@ -7,7 +7,7 @@ class RecordingsController < ApplicationController
 
   def create
     @talk = Talk.find(params[:talk_id])
-    speech_processor = SpeechProcessor.new()
+    speech_processor = SpeechProcessor.new
     @talk.transcript = speech_processor.decode("#{@talk.id}.wav")
     @talk.save
     redirect_to talk_path(@talk)
@@ -17,9 +17,9 @@ class RecordingsController < ApplicationController
     dev = CoreAudio.default_input_device
     buf = dev.input_buffer(1024)
 
-    wav = CoreAudio::AudioFile.new("#{talk.id}.wav", :write, :format => :wav,
-                                   :rate => dev.nominal_rate,
-                                   :channels => dev.input_stream.channels)
+    wav = CoreAudio::AudioFile.new("#{talk.id}.wav", :write, format: :wav,
+                                   rate: dev.nominal_rate,
+                                   channels: dev.input_stream.channels)
     samples = 0
     th = Thread.start do
       loop do
@@ -29,18 +29,11 @@ class RecordingsController < ApplicationController
       end
     end
 
-    buf.start;
-    $stdout.print "RECORDING..."
-    $stdout.flush
-    sleep 10;
+    buf.start
+    sleep 10
     buf.stop
-    $stdout.puts "done."
     th.kill.join
 
     wav.close
-
-    puts "#{samples} samples read."
   end
-
-
 end
