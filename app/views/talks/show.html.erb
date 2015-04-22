@@ -35,9 +35,11 @@
 <% unless @filler_counts.empty? %>
 <h4>These are the filler words you said </h4>
 <%-end-%>
+
 <% if @filler_counts.empty? && !@talk.transcript.nil? %>
 <h4>You didn't say any filler words</h4>
 <%-end-%>
+
 <p>
 <% @filler_counts.each_pair do |filler, count| %>
   <%= "#{filler.capitalize} #{count}" %>
