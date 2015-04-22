@@ -264,7 +264,7 @@ DEPENDENCIES
   byebug
   capybara
   coffee-rails (~> 4.1.0)
-  coreaudio (~> 0.0.11)
+  coreaudio (~> 0.0.10)
   coveralls
   devise
   factory_girl
