@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :talks do
     resources :comments
+    resources :recordings
   end
 
   resources :emcee

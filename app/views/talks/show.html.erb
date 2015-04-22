@@ -28,10 +28,15 @@
 <% unless @talk.video_url.nil? || @talk.video_url.empty?  %>
   <iframe id="ytplayer" type="text/html" width="640" height="390" src=<%= @talk.video_url %>></iframe>
 <%-end-%>
+<%= link_to "Record Talk", new_talk_recording_path(@talk) %>
+<%= link_to "Analyze Recorded Talk", talk_recordings_path(@talk), method: :post %>
 <%= render 'transcript' %>
 
 <% unless @filler_counts.empty? %>
 <h4>These are the filler words you said </h4>
+<%-end-%>
+<% if @filler_counts.empty? && !@talk.transcript.nil? %>
+<h4>You didn't say any filler words</h4>
 <%-end-%>
 <p>
 <% @filler_counts.each_pair do |filler, count| %>

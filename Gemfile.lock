@@ -59,6 +59,8 @@ GEM
       execjs
     coffee-script-source (1.9.1.1)
     columnize (0.9.0)
+    coreaudio (0.0.11)
+      narray (~> 0.6.0.0)
     coveralls (0.8.0)
       multi_json (~> 1.10)
       rest-client (>= 1.6.8, < 2)
@@ -85,6 +87,7 @@ GEM
       i18n (~> 0.5)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
+    ffi (1.9.8)
     foundation-rails (5.5.1.2)
       railties (>= 3.1.0)
       sass (>= 3.3.0, < 3.5)
@@ -116,6 +119,7 @@ GEM
     multi_json (1.11.0)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
+    narray (0.6.0.9)
     netrc (0.10.3)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
@@ -137,6 +141,8 @@ GEM
       omniauth (~> 1.2)
     orm_adapter (0.5.0)
     pg (0.18.1)
+    pocketsphinx-ruby (0.3.0)
+      ffi (>= 1.9)
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -258,6 +264,7 @@ DEPENDENCIES
   byebug
   capybara
   coffee-rails (~> 4.1.0)
+  coreaudio
   coveralls
   devise
   factory_girl
@@ -268,6 +275,7 @@ DEPENDENCIES
   launchy
   omniauth-facebook
   pg
+  pocketsphinx-ruby
   pry-rails
   rails (= 4.2.1)
   rails_12factor
