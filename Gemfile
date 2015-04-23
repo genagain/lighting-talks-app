@@ -33,8 +33,6 @@ gem 'faker'
 
 gem 'omniauth-facebook'
 
-gem 'rails_12factor', group: :production
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -59,3 +57,4 @@ gem 'shoulda-matchers', group: [:development, :test], require: false
 gem 'devise'
 gem 'foundation-rails'
 gem 'rails_12factor', group: :production
+ruby "2.1.5"
